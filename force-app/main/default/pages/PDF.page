@@ -1,0 +1,8 @@
+<apex:page standardController="Account" renderAs="pdf">
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!Account.Contacts}" var="contact">
+            <apex:column value="{!contact.FirstName}"/>
+            <apex:column value="{!contact.LastName}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

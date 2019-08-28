@@ -1,0 +1,6 @@
+<apex:page controller="PressReleases" showheader="false" >
+<apex:dataTable value="{!Releases}" var="pr">
+	<apex:column value="{!pr.Name}" />
+	<apex:column value="{!pr.Publish_Date__c}" />
+</apex:dataTable>
+</apex:page>

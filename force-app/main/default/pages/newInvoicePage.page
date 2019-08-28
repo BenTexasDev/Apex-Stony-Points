@@ -1,0 +1,30 @@
+<apex:page StandardController="Invoice__c" extensions="NewInvoice">
+    
+    <apex:outputPanel rendered="{!NOT(hasAccount)}">
+        You can only create Invoices from the Account screen.
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!hasAccount}"> 
+        <apex:SectionHeader title="Create New Invoice" subtitle="{!account.Name}" />
+        <apex:form >
+        <apex:PageBlock >  
+        <apex:PageBlockButtons >
+            <apex:CommandButton action="{!saveNewInvoice}" value="Save"/>
+            <apex:CommandButton action="{!cancel2}" value="Cancel" immediate="true"/>
+        </apex:PageBlockButtons>
+        <apex:PageBlockSection title="New Invoice Information" collapsible="false" columns="2">
+            <apex:outputField value="{!invoice.Account__c}"/>
+            <apex:inputField value="{!invoice.Opportunity__c}"/>
+            <apex:inputField value="{!invoice.Status__c}" />
+            <apex:inputText value="{!invoice.Amount__c}" />
+            <apex:inputField value="{!invoice.Due_Date__c}" />
+            <apex:selectList value="{!invoice.Billing_Contact__c}">
+                <apex:selectOptions value="{!Contacts}"/>
+            </apex:selectList>
+        </apex:PageBlockSection>
+        </apex:PageBlock>
+            <c:disclaimer level="1" RecordName="{!Account.Name}" />
+        </apex:form>
+    </apex:outputPanel>
+
+</apex:page>

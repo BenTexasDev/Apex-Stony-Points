@@ -1,0 +1,32 @@
+<apex:page standardcontroller="Invoice__c" recordsetvar="invoices" extensions="InvoicesController">
+   <apex:form >
+    <apex:pageblock >    
+    <apex:pageblockbuttons >
+        <apex:commandbutton value="Save" action="{!save}" />
+        <apex:commandbutton value="Cancel" action="{!cancel}" immediate="true" />
+    </apex:pageblockbuttons>
+    <apex:pageblockTable value="{!existinginvoices}" var="i">
+        <apex:column value="{!i.Name}" />
+        <apex:column headervalue="Account">
+            <apex:inputField value="{!i.Account__c}"/>
+        </apex:column>
+        <apex:column headervalue="Opportunity">
+            <apex:inputField value="{!i.Opportunity__c}"/>
+        </apex:column>
+        <apex:column headervalue="Billing Contact">
+            <apex:inputField value="{!i.Billing_Contact__c}"/>
+        </apex:column>
+        <apex:column headerValue="Due Date" >
+            <apex:inputField value="{!i.Due_Date__c}"/>
+        </apex:column>
+        <apex:column headerValue="Amount" >
+            <apex:inputField value="{!i.Amount__c}"/>
+        </apex:column>
+        <apex:column headerValue="Amount Paid" >
+            <apex:inputField value="{!i.Amount_Paid__c}"/>
+        </apex:column>
+        <apex:column value="{!i.Balance__c}" />
+    </apex:pageblockTable>    
+    </apex:pageblock>
+    </apex:form>
+</apex:page>

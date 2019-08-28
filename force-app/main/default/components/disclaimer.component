@@ -1,0 +1,14 @@
+<apex:component >
+<apex:attribute name="Level" description="Options are 1,2 or 3.   1 - confidential, 2 - proprietary, 3 - protected.  
+This value affects the display of the component." type="Integer" required="true"/>
+<apex:attribute name="RecordName" description="Pass in the name of the record being viewed by the end user." type="String" required="true"/>
+<p style="font-weight: bold;">
+<apex:outputPanel rendered="{!Level==2}">Proprietary Data</apex:outputPanel>
+<apex:outputPanel rendered="{!Level==3}">Protected Data </apex:outputPanel>
+<apex:outputPanel rendered="{!Level==1}">Confidential Data</apex:outputPanel>
+</p>
+<p>
+The data you are viewing, concerning the {!RecordName} record, is the sole property of GenWatt, Inc. 
+and should not be disclosed to any 3rd party under any circumstances.
+</p>
+</apex:component>

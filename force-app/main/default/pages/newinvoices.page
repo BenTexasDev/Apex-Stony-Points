@@ -1,0 +1,23 @@
+<apex:page sidebar="false" showheader="false" recordSetVar="Invoices" standardcontroller="Invoice__c" extensions="InvoicesController">
+
+    <apex:form >
+    <apex:pageblock >    
+    <apex:pageblockbuttons >
+        <apex:commandbutton value="Save" action="{!save}" />
+        <apex:commandbutton value="Cancel" action="{!cancel}" immediate="true" />
+    </apex:pageblockbuttons>
+    <apex:pageblockTable value="{!newinvoices}" var="i">
+        <apex:column value="{!i.Account__c}" />
+        <apex:column value="{!i.Opportunity__c}" />
+        <apex:column headerValue="Amount" >
+            <apex:inputText value="{!i.Amount__c}"/>
+        </apex:column>
+        <apex:column headerValue="Due Date" >
+            <apex:inputField value="{!i.Due_Date__c}"/>
+        </apex:column>
+    </apex:pageblockTable>    
+    </apex:pageblock>
+    </apex:form>
+
+
+</apex:page>

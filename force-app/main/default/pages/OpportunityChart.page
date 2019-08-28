@@ -1,0 +1,19 @@
+<apex:page controller="OpportunityChart">
+    <apex:outputPanel id="errors">
+    	<apex:pageMessages id="pagemessages"></apex:pageMessages>
+    </apex:outputPanel>
+    <apex:form >
+    	<apex:selectList size="1" value="{!year}">
+        	<apex:selectOptions value="{!Years}"></apex:selectOptions>
+            <apex:actionSupport event="onchange" action="{!reload}"
+            	rerender="theChart,errors,pagemessages"/>
+        </apex:selectList>
+        <apex:outputPanel id="theChart">
+            
+	    <apex:chart height="263" width="338" data="{!chartvalues}">
+	        <apex:pieSeries dataField="value" labelField="name"/>
+	    </apex:chart>
+	    
+    	</apex:outputPanel>
+    </apex:form>
+</apex:page>
